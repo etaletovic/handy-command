@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyCommand", "HandyCommand\HandyCommand.csproj", "{F720A56E-CE7C-4C11-AD86-5CAD15F985C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{9BDE05B9-F297-4712-8A04-DD1D0BA29BDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F720A56E-CE7C-4C11-AD86-5CAD15F985C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F720A56E-CE7C-4C11-AD86-5CAD15F985C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F720A56E-CE7C-4C11-AD86-5CAD15F985C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F720A56E-CE7C-4C11-AD86-5CAD15F985C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BDE05B9-F297-4712-8A04-DD1D0BA29BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BDE05B9-F297-4712-8A04-DD1D0BA29BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BDE05B9-F297-4712-8A04-DD1D0BA29BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BDE05B9-F297-4712-8A04-DD1D0BA29BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
