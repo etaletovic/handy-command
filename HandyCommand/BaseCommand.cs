@@ -26,5 +26,10 @@ namespace HandyCommand
                 handler(this, EventArgs.Empty);
             }
         }
+
+        public void RaiseCanExecuteChanged()
+        {
+            OnCanExecuteChanged();
+        }
     }
 }
