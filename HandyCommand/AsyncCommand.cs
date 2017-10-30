@@ -3,6 +3,20 @@ using System.Threading.Tasks;
 
 namespace HandyCommand
 {
+    public sealed class AsyncCommand<T> : AsyncCommand
+    {
+        public AsyncCommand(Func<T, Task> executeAsync) : base(async (obj) => await executeAsync((T)obj))
+        {
+            if (executeAsync == null) throw new ArgumentNullException(nameof(executeAsync));
+        }
+        public AsyncCommand(Func<T, Task> executeAsync, Func<T, bool> canExecute) : base(async obj => await executeAsync((T)obj), obj=>canExecute((T)obj))
+        {
+            if (executeAsync == null) throw new ArgumentNullException(nameof(executeAsync));
+            if (canExecute == null) throw new ArgumentNullException(nameof(canExecute));
+
+        }
+    }
+
     public class AsyncCommand : BaseCommand, IAsyncCommand
     {
         Func<object, Task> executeAsync;
