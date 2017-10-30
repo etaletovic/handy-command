@@ -36,3 +36,24 @@ This particular library does not rely on CommandManager which is part of WPF, th
 ```
   command.RaiseCanExecuteChanged();
 ```
+<h4>3. Executing command</h4>
+
+```
+  command.Execute(null);
+  //For AsyncCommand
+  await asyncCommand.ExecuteAsync(null);
+```
+<h4>4. Check if command can be executed</h4>
+
+```
+ if (command.CanExecute(null))
+ {
+     command.Execute(null);
+ }
+ if(asyncCommand.CanExecute(null))
+ {
+     await asyncCommand.ExecuteAsync(null);
+ }
+            
+```
+
