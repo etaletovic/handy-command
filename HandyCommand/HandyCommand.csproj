@@ -2,6 +2,31 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+    <Authors>Emir Taletovic</Authors>
+    <PackageLicenseUrl>https://github.com/etaletovic/handy-command/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Owners>Emir Taletovic</Owners>
+    <PackageProjectUrl>https://github.com/etaletovic/handy-command</PackageProjectUrl>
+    <Title>HandyCommand</Title>
+    <Description>.Net Standard libary which implements ICommand interface and provides Command and AsyncCommand classes that are tipically used to provide commanding behaviour to user interfaces.
+
+This particular library does not rely on CommandManager which is part of WPF, therefore it can be used with Xamarin and Mono.</Description>
+    <PackageId>Emt.HandyCommand</PackageId>
+    <PackageVersion>0.1</PackageVersion>
+	<Copyright>Copyright (c) 2017 Emir Taletovic</Copyright>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageTags>command icommand delegatecommand relaycommand</PackageTags>
+    <Summary>.Net Standard ICommand implementation with asynchronous execution capabilities</Summary>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\netstandard2.0\HandyCommand.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DocumentationFile>bin\Release\netstandard2.0\HandyCommand.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.1" />
+  </ItemGroup>
 </Project>
