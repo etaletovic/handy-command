@@ -9,6 +9,7 @@ namespace HandyCommand
         //Event declaration. No need for event delegate therefore using
         //base EventHandler
         public event EventHandler CanExecuteChanged;
+        public event EventHandler ShouldExecute;
 
         public bool CanExecute(object parameter)
         {
@@ -27,9 +28,22 @@ namespace HandyCommand
             }
         }
 
+        protected void OnShouldExecute()
+        {
+            var handler = ShouldExecute;
+            if(handler != null)
+            {
+                handler(this, EventArgs.Empty);
+            }
+        }
+
         public void RaiseCanExecuteChanged()
         {
             OnCanExecuteChanged();
+        }
+        public void RaiseShouldExecute()
+        {
+            OnShouldExecute();
         }
     }
 }

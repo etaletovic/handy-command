@@ -8,6 +8,7 @@ namespace HandyCommand
         Task ExecuteAsync(object parameter);
         bool CanExecute(object parameter);
         event EventHandler CanExecuteChanged;
+        event EventHandler ShouldExecute;
 
     }
 }
