@@ -52,7 +52,7 @@ namespace Test
             await command.ExecuteAsync(null);
             Assert.True(x == 1);
 
-            Assert.True(EventCounter==2);
+            Assert.True(EventCounter == 2);
         }
 
         void Command_CanExecuteChanged(object sender, EventArgs e)
@@ -71,7 +71,8 @@ namespace Test
         {
             var x = "";
             var text = "test";
-            var command = new AsyncCommand<string>(async (message) => {
+            var command = new AsyncCommand<string>(async (message) =>
+            {
                 await Task.Delay(2000);
                 x = message;
             });
@@ -101,14 +102,31 @@ namespace Test
         public async Task AsyncCommandT_EventsWork()
         {
             EventCounter = 0;
-            var command = new AsyncCommand<int>(async (milisec) => {
+            var command = new AsyncCommand<int>(async (milisec) =>
+            {
                 await Task.Delay(milisec);
             });
 
             command.CanExecuteChanged += Command_CanExecuteChanged;
             await command.ExecuteAsync(2000);
 
-            Assert.True(EventCounter==2);
+            Assert.True(EventCounter == 2);
+        }
+
+        [Fact]
+        public void AsyncCommandT_ShouldExecuteEventWorks()
+        {
+            EventCounter = 0;
+            var command = new AsyncCommand<int>(async (milisec) =>
+            {
+                await Task.Delay(milisec);
+            });
+
+            command.ShouldExecute += Command_CanExecuteChanged;
+
+            command.RaiseShouldExecute();
+
+            Assert.True(EventCounter == 2);
         }
 
         void Command_CanExecuteChanged(object sender, EventArgs e)
