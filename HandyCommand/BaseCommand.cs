@@ -13,7 +13,7 @@ namespace HandyCommand
 
         public bool CanExecute(object parameter)
         {
-            if (canExecute == null) return !isExecuting && true;
+            if (canExecute == null) return isExecuting == false;
             return !isExecuting && canExecute(parameter);
         }
 

@@ -60,6 +60,23 @@ namespace Test
             EventCounter++;
 
         }
+        [Fact]
+        public async void AsyncCommand_CommandIsNotTriggeredIfExecuting()
+        {
+
+            var command = new AsyncCommand(async () =>
+            {
+                await Task.Delay(5000);
+            });
+            Assert.True(command.CanExecute(null), "Before execution start");
+            command.ExecuteAsync(null);
+            Assert.False(command.CanExecute(null), "After execution start");
+            await Task.Delay(6000);
+            Assert.True(command.CanExecute(null), "Execution should finish here");
+
+
+        }
+
     }
 
     public class AsyncCommandTTest
@@ -107,7 +124,10 @@ namespace Test
                 await Task.Delay(milisec);
             });
 
-            command.CanExecuteChanged += Command_CanExecuteChanged;
+            command.CanExecuteChanged += (sender, e) => {
+                EventCounter++;
+
+            };
             await command.ExecuteAsync(2000);
 
             Assert.True(EventCounter == 2);
@@ -116,23 +136,23 @@ namespace Test
         [Fact]
         public void AsyncCommandT_ShouldExecuteEventWorks()
         {
-            EventCounter = 0;
             var command = new AsyncCommand<int>(async (milisec) =>
             {
                 await Task.Delay(milisec);
             });
 
-            command.ShouldExecute += Command_CanExecuteChanged;
+            var a = 0;
+            command.ShouldExecute += (sender, e) => {
+                a++;
+            };
 
             command.RaiseShouldExecute();
 
-            Assert.True(EventCounter == 2);
+            Assert.True(a == 1);
         }
 
-        void Command_CanExecuteChanged(object sender, EventArgs e)
-        {
-            EventCounter++;
-        }
 
+       
+       
     }
 }
