@@ -14,5 +14,6 @@ namespace HandyCommand
         // Events
         //
         event EventHandler CanExecuteChanged;
+        event EventHandler ShouldExecute;
     }
 }
